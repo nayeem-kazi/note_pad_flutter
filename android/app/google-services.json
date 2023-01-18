@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "885151478777",
+    "project_id": "notepad-244dc",
+    "storage_bucket": "notepad-244dc.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:885151478777:android:be32218f42938fb94ac328",
+        "android_client_info": {
+          "package_name": "com.example.note_pad_flutter"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "885151478777-11njh2ajsjdkud1583i39emgi1g0sobl.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCU2JdBy8S3blA7ptr5qOaRrBka8EPl09E"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "885151478777-11njh2ajsjdkud1583i39emgi1g0sobl.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
