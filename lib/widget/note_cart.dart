@@ -19,12 +19,15 @@ Widget noteCard(Function()? onTap, QueryDocumentSnapshot doc){
           children: [
             Text(
               doc["note_title"],
+              style: AppStyle.mainTitle
             ),
             Text(
               doc["creation_date"],
+                style: AppStyle.dateTitle
             ),
             Text(
               doc["note_content"],
+              style: AppStyle.mainContent,
             ),
           ],
         ),

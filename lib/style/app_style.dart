@@ -16,4 +16,17 @@ class AppStyle{
     Colors.blue.shade100,
     Colors.blueGrey.shade100,
   ];
+
+  static TextStyle mainTitle = TextStyle(
+    fontSize: 18.0,
+    fontWeight: FontWeight.bold
+  );
+  static TextStyle mainContent = TextStyle(
+    fontSize: 16.0,
+    fontWeight: FontWeight.normal
+  );
+  static TextStyle dateTitle = TextStyle(
+    fontSize: 10.0,
+    fontWeight: FontWeight.normal
+  );
 }

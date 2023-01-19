@@ -1,5 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:note_pad_flutter/screen/note_reader.dart';
 import 'package:note_pad_flutter/style/app_style.dart';
 import 'package:note_pad_flutter/widget/note_cart.dart';
 
@@ -57,7 +58,15 @@ class _HomeScreenState extends State<HomeScreen> {
                             crossAxisCount: 2
                           ),
                         children: snapshot.data!.docs
-                            .map((note) => noteCard(() {}, note))
+                            .map((note) => noteCard(() {
+                              Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) =>
+                                          NoteReaderScreen(note),
+                                  )
+                              );
+                        }, note))
                         .toList(),
                       ),
                     );
