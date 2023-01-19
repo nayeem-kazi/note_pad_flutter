@@ -1,6 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:note_pad_flutter/style/app_style.dart';
+import 'package:note_pad_flutter/widget/note_cart.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);
@@ -37,28 +38,38 @@ class _HomeScreenState extends State<HomeScreen> {
             SizedBox(
               height: 20.0,
             ),
-            StreamBuilder<QuerySnapshot>(
-              stream: FirebaseFirestore.instance.collection("notes").snapshots(),
-              builder: (context,AsyncSnapshot snapshot) {
-                if (snapshot.connectionState == ConnectionState.waiting){
-                  return Center(
-                    child: CircularProgressIndicator(),
+            Expanded(
+              child: StreamBuilder<QuerySnapshot>(
+                stream: FirebaseFirestore.instance.collection("notes").snapshots(),
+                builder: (context,AsyncSnapshot<QuerySnapshot> snapshot) {
+                  if (snapshot.connectionState == ConnectionState.waiting){
+                    return Center(
+                      child: CircularProgressIndicator(),
+                    );
+                  }
+                  if (snapshot.hasData){
+                    // return Text("data",style: TextStyle(
+                    //     color: Colors.white
+                    // ),);
+                    return Expanded(
+                      child: GridView(
+                          gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                            crossAxisCount: 2
+                          ),
+                        children: snapshot.data!.docs
+                            .map((note) => noteCard(() {}, note))
+                        .toList(),
+                      ),
+                    );
+                  }
+                  return Text("there's no notes",
+                  style: TextStyle(
+                    color: Colors.white
+                  ),
                   );
-                }
-                if (snapshot.hasData){
-                  return GridView(
-                      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                        crossAxisCount: 2
-                      )
-                  );
-                }
-                return Text("there's no notes",
-                style: TextStyle(
-                  color: Colors.white
-                ),
-                );
 
-              }
+                }
+              ),
             )
           ],
 
