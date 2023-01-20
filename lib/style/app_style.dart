@@ -26,7 +26,7 @@ class AppStyle{
     fontWeight: FontWeight.normal
   );
   static TextStyle dateTitle = TextStyle(
-    fontSize: 10.0,
+    fontSize: 13.0,
     fontWeight: FontWeight.normal
   );
 }

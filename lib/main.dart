@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:note_pad_flutter/screen/home_screen.dart';
 
 Future<void> main() async {
+
+
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
   runApp(const MyApp());

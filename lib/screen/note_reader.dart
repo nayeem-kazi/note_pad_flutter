@@ -38,13 +38,25 @@ class _NoteReaderScreenState extends State<NoteReaderScreen> {
             SizedBox(
               height: 18.0,
             ),
-            Text(
-              widget.doc["note_content"],
-              style: AppStyle.mainContent,
-              overflow: TextOverflow.ellipsis,
+            Expanded(
+              child: SingleChildScrollView(
+                child: Text(
+                  widget.doc["note_content"],
+                  style: AppStyle.mainContent,
+                  overflow: TextOverflow.clip,
+                ),
+              ),
             ),
           ],
         ),
+      ),
+      floatingActionButton: FloatingActionButton.extended(
+        backgroundColor: AppStyle.accentColor,
+        onPressed: (){
+
+        },
+        label: Text("Edit Note"),
+        icon: Icon(Icons.edit),
       ),
     );
   }

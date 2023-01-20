@@ -1,5 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:note_pad_flutter/screen/note_editor.dart';
 import 'package:note_pad_flutter/screen/note_reader.dart';
 import 'package:note_pad_flutter/style/app_style.dart';
 import 'package:note_pad_flutter/widget/note_cart.dart';
@@ -57,6 +58,7 @@ class _HomeScreenState extends State<HomeScreen> {
                           gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                             crossAxisCount: 2
                           ),
+                        padding: EdgeInsets.all(8.0),
                         children: snapshot.data!.docs
                             .map((note) => noteCard(() {
                               Navigator.push(
@@ -83,6 +85,14 @@ class _HomeScreenState extends State<HomeScreen> {
           ],
 
         ),
+      ),
+      floatingActionButton: FloatingActionButton.extended(
+        backgroundColor: AppStyle.accentColor,
+          onPressed: (){
+            Navigator.push(context, MaterialPageRoute(builder: (context) => NoteEditorScreen(),));
+          },
+          label: Text("Add Note"),
+        icon: Icon(Icons.add),
       ),
     );
   }

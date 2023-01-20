@@ -19,15 +19,20 @@ Widget noteCard(Function()? onTap, QueryDocumentSnapshot doc){
           children: [
             Text(
               doc["note_title"],
-              style: AppStyle.mainTitle
+              style: AppStyle.mainTitle,
+              maxLines: 1,
             ),
+            SizedBox(height: 4.0,),
             Text(
               doc["creation_date"],
-                style: AppStyle.dateTitle
+                style: AppStyle.dateTitle,
+                maxLines: 2,
             ),
+            SizedBox(height: 8.0,),
             Text(
               doc["note_content"],
               style: AppStyle.mainContent,
+              maxLines: 3,
             ),
           ],
         ),
