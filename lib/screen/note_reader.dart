@@ -5,6 +5,7 @@ import 'package:note_pad_flutter/style/app_style.dart';
 class NoteReaderScreen extends StatefulWidget {
   NoteReaderScreen(this.doc, {Key? key}) : super(key: key);
   QueryDocumentSnapshot doc;
+  DocumentSnapshot? documentSnapshot;
   @override
   State<NoteReaderScreen> createState() => _NoteReaderScreenState();
 }
@@ -17,6 +18,12 @@ class _NoteReaderScreenState extends State<NoteReaderScreen> {
       backgroundColor: AppStyle.cardsColor[color_id],
       appBar: AppBar(
         backgroundColor: AppStyle.cardsColor[color_id],
+        title: Text(
+          "Notes",
+          style: TextStyle(
+            color: Colors.black,
+          ),
+        ),
         elevation: 0.0,
       ),
       body: Padding(
@@ -53,10 +60,19 @@ class _NoteReaderScreenState extends State<NoteReaderScreen> {
       floatingActionButton: FloatingActionButton.extended(
         backgroundColor: AppStyle.accentColor,
         onPressed: (){
-
+          _delete(docum.id);
         },
-        label: Text("Edit Note"),
-        icon: Icon(Icons.edit),
+        label: Text(""),
+        icon: Icon(Icons.delete),
+      ),
+    );
+  }
+
+  void _delete(String productId) async {
+    await _products.doc(productId).delete();
+    ScaffoldMessenger.of(context).showSnackBar(
+      const SnackBar(
+        content:  Text("Deleted"),
       ),
     );
   }

@@ -7,14 +7,14 @@ import 'package:note_pad_flutter/widget/note_cart.dart';
 
 import '../widget/menu.dart';
 
-class HomeScreen extends StatefulWidget {
-  const HomeScreen({Key? key}) : super(key: key);
+class NoteScreen extends StatefulWidget {
+  const NoteScreen({Key? key}) : super(key: key);
 
   @override
-  State<HomeScreen> createState() => _HomeScreenState();
+  State<NoteScreen> createState() => _NoteScreenState();
 }
 
-class _HomeScreenState extends State<HomeScreen> {
+class _NoteScreenState extends State<NoteScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(

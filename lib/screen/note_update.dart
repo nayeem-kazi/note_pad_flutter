@@ -4,7 +4,6 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:note_pad_flutter/screen/home_screen.dart';
 import 'package:note_pad_flutter/style/app_style.dart';
-import 'package:date_format/date_format.dart';
 
 class NoteEditorScreen extends StatefulWidget {
   const NoteEditorScreen({Key? key}) : super(key: key);
@@ -16,8 +15,7 @@ class NoteEditorScreen extends StatefulWidget {
 class _NoteEditorScreenState extends State<NoteEditorScreen> {
   int color_id = Random().nextInt(AppStyle.cardsColor.length);
 
-  // String date = DateTime.now().toString();
-  String date = formatDate(DateTime.now(), [dd, '/', mm, '/', yyyy, ' ', HH, ':' ,nn]).toString();
+  String date = DateTime.now().toString();
   TextEditingController titleController = TextEditingController();
   TextEditingController mainController = TextEditingController();
   @override
